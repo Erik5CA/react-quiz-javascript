@@ -2,7 +2,12 @@ import { Button } from "@mui/material";
 import { useQuestionsStore } from "../store/questions";
 
 const LIMIT_QUESTIONS = 10;
-function Start() {
+
+interface Props {
+  children: React.ReactNode;
+}
+
+function Start({ children }: Props) {
   const fetchQuestions = useQuestionsStore((state) => state.fetchQuestions);
 
   const handleClick = () => {
@@ -10,7 +15,7 @@ function Start() {
   };
   return (
     <Button onClick={handleClick} variant="contained">
-      ¡Empezar!
+      {children}
     </Button>
   );
 }

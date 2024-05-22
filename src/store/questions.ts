@@ -25,7 +25,7 @@ export const useQuestionsStore = create<State>()(
           const questions = data
             .sort(() => Math.random() - 0.5)
             .slice(0, limit);
-          set({ questions });
+          set({ questions, currentQuestion: 0 });
         },
 
         selectAnswer: (questionId: number, answerIndex: number) => {
